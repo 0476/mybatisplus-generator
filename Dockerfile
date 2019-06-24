@@ -1,6 +1,7 @@
 FROM registry.cn-beijing.aliyuncs.com/ailikes_tools/alpine-openjdk8:latest
+MAINTAINER 15600499930@163.com
 VOLUME /tmp
-ADD code-generator-1.0.1-SNAPSHOT.jar /app.jar
+ADD ./target/mybatis-gen.jar /app.jar
 RUN sh -c 'touch /app.jar'
 EXPOSE 8088
 ENV JAVA_OPTS=""

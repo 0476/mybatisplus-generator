@@ -5,7 +5,7 @@
 
 	<groupId>com.ailikes</groupId>
 	<artifactId>mybatis-gen</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>mybatis-gen</name>
@@ -22,6 +22,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+        <docker.image.prefix>ailikes</docker.image.prefix>
+        <docker.image.version>1.0.0</docker.image.version>
 	</properties>
 
 	<dependencies>
@@ -123,6 +125,44 @@
 					<skipTests>true</skipTests>
 				</configuration>
 			</plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>package-push</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>push</goal>    <!--相当于docker的push命令-->
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <serverId>ailikes-docker-registry</serverId>
+                    <dockerDirectory>/</dockerDirectory>
+                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+                    <imageTags>
+                        <imageTag>${docker.image.version}</imageTag>
+                        <imageTag>lastest</imageTag>
+                    </imageTags>
+                    <forceTags>true</forceTags>
+                    <dockerDirectory>${project.basedir}/</dockerDirectory>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
 
