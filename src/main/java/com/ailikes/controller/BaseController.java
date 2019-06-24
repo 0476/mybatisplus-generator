@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Created by jack-cooper on 2017/1/14.
+ * Created by ailikes on 2017/1/14.
  */
 public class BaseController {
 

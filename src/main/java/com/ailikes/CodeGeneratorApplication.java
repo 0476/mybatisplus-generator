@@ -1,6 +1,7 @@
 package com.ailikes;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
@@ -18,15 +19,17 @@ import java.net.UnknownHostException;
 @Slf4j
 public class CodeGeneratorApplication {
 
+
+	private static Integer serverPort;
+
 	public static void main(String[] args) throws UnknownHostException {
 		SpringApplication.run(CodeGeneratorApplication.class, args);
 		log.info("\n======================================================\n\t"+
-					"Application is running !!! \n\t"+
-					"Auth: \tailikes\n\t"+
-					"github: \thttps://github.com/0476\n\t"+
-					"Access URLs:\t http://{}:8088\n"+
+					"Application is running !!! \n"+
+					"Auth: ailikes\n"+
+					"Access URLs:\t http://{}:{}\n"+
 					"======================================================",
-				InetAddress.getLocalHost().getHostAddress()
+				InetAddress.getLocalHost().getHostAddress(),serverPort
 		);
 	}
 
@@ -36,4 +39,12 @@ public class CodeGeneratorApplication {
 		return "redirect:/index";
 	}
 
+	public static Integer getServerPort() {
+		return serverPort;
+	}
+
+	@Value("${server.port}")
+	public void setServerPort(Integer serverPort) {
+		CodeGeneratorApplication.serverPort = serverPort;
+	}
 }

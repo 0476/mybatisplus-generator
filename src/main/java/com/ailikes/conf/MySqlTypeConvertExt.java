@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.generator.config.rules.DbColumnType;
 import com.baomidou.mybatisplus.generator.config.rules.IColumnType;
 
 /**
- * @author jack-cooper
+ * @author ailikes
  * @version 1.0.0
  * @ClassName MySqlTypeConvert.java
  * @Description OffesetDateTime

@@ -3,7 +3,7 @@ package com.ailikes.conf;
 import com.baomidou.mybatisplus.generator.config.rules.IColumnType;
 
 /**
- * @author jack-cooper
+ * @author ailikes
  * @version 1.0.0
  * @ClassName DbColumnTypeExt.java
  * @Description TODO

@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 /**
- * Created by jack-cooper on 2017/1/14.
+ * Created by ailikes on 2017/1/14.
  */
 @Controller
 public class LoginController extends BaseController{

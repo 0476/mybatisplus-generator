@@ -37,7 +37,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
- * @author jack-cooper
+ * @author ailikes
  * @since 2017-01-13 16:16
  */
 @Configuration

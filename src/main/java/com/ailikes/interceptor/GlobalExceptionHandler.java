@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Created by jack-cooper on 2017/1/22.
+ * Created by ailikes on 2017/1/22.
  */
 @ControllerAdvice
 public class GlobalExceptionHandler {

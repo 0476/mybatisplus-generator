@@ -3,13 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.reapal</groupId>
-	<artifactId>code-generator</artifactId>
+	<groupId>com.ailikes</groupId>
+	<artifactId>mybatis-gen</artifactId>
 	<version>1.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>code-generator</name>
-	<description>mybatisplus代码生成工具</description>
+	<name>mybatis-gen</name>
+	<description>mybatisplus代码生成系统</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -66,13 +66,6 @@
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 
-		<!-- oracle驱动包 -->
-	<!--	<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc14</artifactId>
-			<version>10.2.0.4.0</version>
-		</dependency>-->
-
 		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus</artifactId>
@@ -107,6 +100,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

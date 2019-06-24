@@ -1,7 +1,7 @@
-FROM java:8
-
-RUN mkdir /app
-WORKDIR /app
-ADD build/libs/code-generator-0.0.1-SNAPSHOT.jar /app
-RUN ln -sf code-generator-0.0.1-SNAPSHOT.jar code-generator-latest.jar
-ENTRYPOINT ["java","-jar","/app/code-generator-latest.jar"]
+FROM registry.cn-beijing.aliyuncs.com/ailikes_tools/alpine-openjdk8:latest
+VOLUME /tmp
+ADD code-generator-1.0.1-SNAPSHOT.jar /app.jar
+RUN sh -c 'touch /app.jar'
+EXPOSE 8088
+ENV JAVA_OPTS=""
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar --server.port=8088" ]

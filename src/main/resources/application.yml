@@ -1,6 +1,6 @@
 server:
   port: 8088
-  display-name: code-generator
+  display-name: mybatis-gen
 
 spring:
   datasource:
@@ -24,7 +24,7 @@ spring:
 #        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     open-in-view: true
   application:
-    name: mybatisplus-generator-web
+    name: mybatis-gen
   thymeleaf:
     cache: false
     prefix: classpath:/templates
